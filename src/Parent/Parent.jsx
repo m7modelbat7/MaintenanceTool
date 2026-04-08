@@ -16,6 +16,8 @@ export default function Parent() {
 
         if (answer) {
             alert(`Yes, you clicked: ${product.name}`);
+            setProduct(Product.filter((item) => item.id !== product.id));
+            
         } else {
             alert(`No, you did not delete: ${product.name}`);
         }
