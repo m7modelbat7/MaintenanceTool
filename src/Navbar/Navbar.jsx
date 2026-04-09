@@ -20,9 +20,9 @@ export default function Navbar() {
         <li className="nav-item">
           <NavLink className= {({isActive}) => isActive ? "nav-link Hamada" : "nav-link saba70"} to="/parent">parent</NavLink>
         </li>
-       
-       
-       
+       <li className="nav-item">
+          <NavLink className= {({isActive}) => isActive ? "nav-link Hamada" : "nav-link saba70"} to="/services">Services</NavLink>
+        </li>
         
       </ul>
       
