@@ -25,13 +25,13 @@ export default function Parent() {
   return (
     <React.Fragment>
         <div className='text-center mt-5 bg-primary text-white' >Parent
-        <div className="container mt-5">
-            <div className="row g-2">
-                {Product.map((item, index) => (
-                    <Child ProductInfo={item} handleDelete={handleDelete} key={index} />
-                ))}
+            <div className="container mt-5">
+                <div className="row g-2">
+                    {Product.map((item, index) => (
+                        <Child ProductInfo={item} handleDelete={handleDelete} key={index} />
+                    ))}
+                </div>
             </div>
-        </div>
         </div>
     </React.Fragment>
   )
