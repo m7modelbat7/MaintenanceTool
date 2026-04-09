@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Child from '../Child/Child'
 
 export default function Parent() {
@@ -21,7 +21,17 @@ export default function Parent() {
         } else {
             alert(`No, you did not delete: ${product.name}`);
         }
-}
+
+    }
+
+    useEffect(() => {
+        console.log("Parent Component Mounted");
+
+        return () => {
+            console.log("Parent Component Unmounted");
+        }
+    }
+    , [])
   return (
     <React.Fragment>
         <div className='text-center mt-5 bg-primary text-white' >Parent
