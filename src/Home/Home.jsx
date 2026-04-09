@@ -21,7 +21,7 @@ export default function Home() {
     <React.Fragment>
       
 
-      <header className="fixed-top bg-light border-top py-3">
+      {/* <header className="fixed-top bg-light border-top py-3">
         <div className="d-flex justify-content-center gap-3">
           <button className="btn btn-primary d-flex flex-column align-items-center">
             <i className="fas fa-home mb-1"></i>
@@ -38,7 +38,7 @@ export default function Home() {
             <span>Settings</span>
           </button>
         </div>
-      </header>
+      </header> */}
       <br />
       <br />
       <div className="container text-center mt-5">
