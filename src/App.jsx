@@ -8,6 +8,7 @@ import Service from './Service/Service.jsx'
 import WebDevelopment from './WebDevelopment/WebDevelopment.jsx'
 import MobileDevelopment from './MobileDevelopment/MobileDevelopment.jsx'
 import UIUXDesign from './UIUXDesign/UIUXDesign.jsx'
+import NotFound from './NotFound/NotFound.jsx'
 function App() {
 
 const router = createBrowserRouter([
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
                                                     { path: 'web-development', element: <WebDevelopment /> },
                                                     { path: 'mobile-development', element: <MobileDevelopment /> },
                                                     { path: 'ui-ux-design', element: <UIUXDesign /> }
-                                                  ]}
+                                                  ]},
+                                                  { path: '*', element: <NotFound /> }
     ] },
     
   ]);
