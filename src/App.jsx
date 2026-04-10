@@ -9,6 +9,7 @@ import WebDevelopment from './WebDevelopment/WebDevelopment.jsx'
 import MobileDevelopment from './MobileDevelopment/MobileDevelopment.jsx'
 import UIUXDesign from './UIUXDesign/UIUXDesign.jsx'
 import NotFound from './NotFound/NotFound.jsx'
+import Movies from './Movies/Movies.jsx'
 function App() {
 
 const router = createBrowserRouter([
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
                                                     { path: 'mobile-development', element: <MobileDevelopment /> },
                                                     { path: 'ui-ux-design', element: <UIUXDesign /> }
                                                   ]},
+                                                  { path: 'movies', element: <Movies /> },
                                                   { path: '*', element: <NotFound /> }
     ] },
     
