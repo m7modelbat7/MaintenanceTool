@@ -11,7 +11,7 @@ export default function Movies() {
       setLoading(true);
       setError('');
 
-      const {data} = await axios.get(
+      const { data } = await axios.get(
         'https://api.themoviedb.org/3/movie/popular',
         {
           params: {
@@ -20,13 +20,12 @@ export default function Movies() {
           },
           headers: {
             accept: 'application/json',
-            Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+            Authorization: `Bearer ${import.meta.env.VITE_TMDB_BEARER_TOKEN}`,
           },
         }
       );
-      const moviesData = data.results
-      const moviesTitles = moviesData.map((movie) => movie.title);
-      setMovies(moviesTitles);
+
+      setMovies(data.results);
     } catch (err) {
       setError('Something went wrong while fetching movies.');
       console.error(err);
@@ -52,16 +51,25 @@ export default function Movies() {
             {loading && <p>Loading movies...</p>}
             {error && <p className="text-danger">{error}</p>}
             {!loading && !error && (
-        <>
-              <p>Movies loaded successfully: {movies.length}</p>
-              <ul>
-                {movies.map((title, index) => (
-                  <li key={index}>{title}</li>
-                ))}
-              </ul> 
+              <>
+                <h2>Movies loaded successfully: {movies.length}</h2>
 
-        </>
-
+                <div className="row g-2">
+                  {movies.map((movie) => (
+                    <div className="col-md-4" key={movie.id}>
+                      <div className="p-3 bg-light text-center">
+                        <img
+                          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                          alt={movie.title}
+                          className="img-fluid mb-2"
+                        /> 
+                        <h1>{movie.title}</h1>
+                        <p>{movie.overview}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
             )}
           </div>
         </div>
