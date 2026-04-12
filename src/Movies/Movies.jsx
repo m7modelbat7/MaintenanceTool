@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Loader from '../Loader/Loader';
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
@@ -48,7 +49,7 @@ export default function Movies() {
           </div>
 
           <div className="col-12">
-            {loading && <p>Loading movies...</p>}
+            {loading && <Loader />}
             {error && <p className="text-danger">{error}</p>}
             {!loading && !error && (
               <>
@@ -56,15 +57,15 @@ export default function Movies() {
 
                 <div className="row g-2">
                   {movies.map((movie) => (
-                    <div className="col-md-4" key={movie.id}>
+                    <div className="col-md-3" key={movie.id}>
                       <div className="p-3 bg-light text-center">
                         <img
-                          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                          src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                           alt={movie.title}
                           className="img-fluid mb-2"
                         /> 
-                        <h1>{movie.title}</h1>
-                        <p>{movie.overview}</p>
+                        <h2 className='text-truncate'>{movie.title}</h2>
+                        <p>{movie.overview.split(' ').slice(0, 20).join(' ')}...</p>
                       </div>
                     </div>
                   ))}
